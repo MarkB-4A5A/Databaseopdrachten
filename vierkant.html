@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opdracht Vierkant</title>
+</head>
+
+<body>
+	
+	Width: <input type="number" onkeyup="determineSize('width',this.value)"> pixels<br><br>
+	Height: <input type="number" onkeyup="determineSize('height',this.value)"> pixels<br><br>
+	Color:
+	<select onchange="determineSize('color',this.value)">
+		<option disabled selected>Select a color...</option>
+		<option value="aquamarine">Aquamarine</option>
+		<option value="crimson">Crimson</option>
+		<option value="lime">Lime</option>
+	</select><br><br>
+	<div id="output" style="width: 100px; height: 100px; background: lightgray;">
+	
+	</div>
+</body>
+
+<script>
+
+	function determineSize(type,value) {
+		if (type == "width") {
+			document.getElementById("output").style.width = value + "px";
+		} else if (type == "height") {
+			document.getElementById("output").style.height = value + "px";
+		} else if (type == "color") {
+			document.getElementById("output").style.backgroundColor = value;
+		}
+		
+		document.getElementById("output").style.transition = "all 0.2s";
+	}
+
+</script>
+
+</html>
