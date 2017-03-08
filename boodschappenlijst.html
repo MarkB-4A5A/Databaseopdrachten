@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opdracht Boodschappenlijst</title>
+</head>
+
+<body>
+
+	Insert your groceries seperated by a comma <i>(apple,banana)</i> and we will put them in a neat list for you!<br><br>
+	<input type="text" id="groceries" style="width: 400px;"><input type="submit" value="Generate grocery list" onclick="generateGroceries(document.getElementById('groceries').value)">
+	<ul id="output">
+	
+	</ul>
+</body>
+
+<script>
+
+	function generateGroceries(groceries) {
+		if (groceries == "") {
+			document.getElementById("output").innerHTML = "<li>No groceries inserted!</li>";
+		} else {
+			// Clear content of list to avoid double posting
+				document.getElementById("output").innerHTML = "";
+			
+			// Split insert by comma
+				var groceryList = groceries.split(",");
+			
+			// Display inserted groceries in list
+				for (i=0;i<groceryList.length;i++) { 
+					var listElement = document.createElement("LI");              
+					var listElementText = document.createTextNode(groceryList[i]);        
+					listElement.appendChild(listElementText);                              
+					document.getElementById("output").appendChild(listElement);  
+				}
+		}
+	}
+
+</script>
+
+</html>
